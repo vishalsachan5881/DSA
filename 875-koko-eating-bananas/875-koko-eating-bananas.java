@@ -1,25 +1,21 @@
 class Solution {
     public int minEatingSpeed(int[] piles, int h) {
-        int n= piles.length;
         Arrays.sort(piles);
-        int ans = -1 ;
-        int s = 0 , end = piles[n-1];
-        while(s <= end) {
-            int mid = s + (end - s)/2;
-            int t = 0;
-            for(var v : piles){
-                t += Math.ceil((double) v / (double) mid);
+        int s = 1  , e = piles[piles.length-1];
+        int ans=0;
+        while(s<=e){
+            int speed = s + (e-s)/2;
+            int time = 0;
+            for(int v : piles){
+                time+= Math.ceil((v*1.0 )/speed);
             }
             
-           if(t<= h){
-               ans = mid;
-               end = mid-1;
-           }else s = mid+1;
-        
+            // if(time == h) return speed;
+            if(time <= h){
+                ans = speed;
+                e = speed-1;
+            }else s = speed+1;
         }
         return ans;
-        
-        
-        
     }
 }
