@@ -1,31 +1,15 @@
 class Solution {
     
-    
-    public void queen(int row , int[][] chess, List<List<String>> ans){
+    int c;
+    public void queen(int row , int[][] chess){
         if(row == chess.length){
-            List<String> dummy  = new ArrayList<>();
-            for(int i = 0 ; i <chess.length; i++)
-                {
-                
-                String s = "";
-                for(int j = 0 ; j<chess[0].length; j++){
-                    if(chess[i][j] == 1) s+='Q';
-                    else s+= '.';
-                    
-                }
-                dummy.add(s);
-               
-                
-                }
-            
-            ans.add(dummy);
-            
+            c += 1;
             return;
         }
         for(int col  =0 ; col < chess.length; col ++){
             if(isSafe(row, col,chess)){
                 chess[row][col]  = 1;
-                queen(row+1,chess,ans);
+                queen(row+1,chess);
                 chess[row][col]  =0 ;
             }
         }
@@ -52,9 +36,10 @@ class Solution {
     
     public int totalNQueens(int n) {
         int[][] mat = new int[n][n];
-        List<List<String>> ans = new ArrayList<>();
-        queen(0 , mat , ans);
-        
-        return ans.size();
+        c = 0 ;
+        // List<List<String>> ans = new ArrayList<>();
+        queen(0 , mat );
+        // System.out.println(c);
+        return c;
     }
 }
