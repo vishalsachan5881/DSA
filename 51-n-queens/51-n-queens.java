@@ -1,6 +1,6 @@
 class Solution {
     
-    
+    // submitted by vishal sachan 
     public void queen(int row , int[][] chess, List<List<String>> ans){
         if(row == chess.length){
             List<String> dummy  = new ArrayList<>();
