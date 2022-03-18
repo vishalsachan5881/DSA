@@ -14,6 +14,5 @@ class Solution {
         StringBuilder sb = new StringBuilder();
         for (int i : stack) sb.append((char)('a' + i));
         return sb.toString();
-        
     }
 }
