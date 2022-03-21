@@ -15,27 +15,7 @@ class Solution {
             
             s.push(i);
         }
-        
-        // for(int i = 0; i<n; i++){
-        //     ans[i] = ans[i]-i;
-        // }
         ans[n-1] = 0;
         return ans;
-        
-        
-        
-        
-        
-        
-        
-         
-        
-        
-        
-        
-        
-        
-        
-        
-    }
+      }
 }
