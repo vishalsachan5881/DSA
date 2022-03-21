@@ -10,15 +10,16 @@ class Solution {
             while(!s.isEmpty() && t[s.peek()] <= t[i]){
                 s.pop();
             }
-            if(s.isEmpty()) ans[i] = i;
-            else ans[i] = s.peek();
+            if(s.isEmpty()) ans[i] = 0;
+            else ans[i] = s.peek()-i;
             
             s.push(i);
         }
         
-        for(int i = 0; i<n; i++){
-            ans[i] = ans[i]-i;
-        }
+        // for(int i = 0; i<n; i++){
+        //     ans[i] = ans[i]-i;
+        // }
+        ans[n-1] = 0;
         return ans;
         
         
