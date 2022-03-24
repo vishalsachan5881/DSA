@@ -6,11 +6,9 @@ class Solution {
         int f = 0 , l = n-1;
         while(f <= l){
             if(people[f] + people[l] <= limit)
-            {
-                f++;l--;boat++;
-            }else{
-                l--;boat++;
-            }
+            f++;
+            l--;
+            boat++;
             
         }
         return boat;
