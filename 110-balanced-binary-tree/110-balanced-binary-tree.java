@@ -27,7 +27,7 @@ class Solution {
     }
     public boolean isBalanced(TreeNode root) {
         
-        return (root==null || height(root)>0);
+        return (height(root)>-1);
         
     }
 }
