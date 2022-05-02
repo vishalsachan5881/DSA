@@ -1,17 +1,16 @@
 class Solution {
-    public int[] sortArrayByParity(int[] nums) {
-        int[] ans = new int[nums.length];
-        int n = nums.length;
-        int p1 = 0 , p2 = n-1;
-        for(int i = 0; i<n ; i++) {
-            if((nums[i] & 1) == 0){
-                ans[p1++] = nums[i];
-                //p1//++;
-            }else{
-                ans[p2--] = nums[i];
-                //--;
+    public int[] sortArrayByParity(int[] arr) {
+        int evenInd = 0;
+        for(int i = 0 ; i < arr.length ; i++){
+            if((arr[i]&1)==0) // even
+            {
+                int t = arr[evenInd];
+                arr[evenInd]  = arr[i];
+                arr[i] = t;
+                
+                evenInd++;
             }
         }
-        return ans;
+        return arr;
     }
 }
