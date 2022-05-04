@@ -37,20 +37,16 @@ class Solution
 {
     public long findMinDiff (ArrayList<Long> a, long n, long m)
     {
-        m = m-1;
         Collections.sort(a);
-        long ans = Integer.MAX_VALUE;
-        //long start  = 0l, end = (m-1)l;
-        long start  = 0L;
-        long end = m;
-        while(end<n){
-            if( a.get((int)end) - a.get((int)start) < ans )
-            ans = a.get((int)end) - a.get((int)start);
-            start++;
-            end++;
+        int l = 0;
+        int r = (int)(m-1);
+        long min = Long.MAX_VALUE;
+        while( r < n){
+            min = Math.min(min , a.get(r) - a.get(l));
+            l += 1;
+            r += 1;
         }
-        
-        return ans;
+        return min;
         // your code here
     }
 }
