@@ -1,13 +1,14 @@
 class Solution {
     public int maxProfit(int[] prices) {
-        
-        int minsofar = Integer.MAX_VALUE;
-        int ans = 0;
-        for(var v : prices){
-            if(v<minsofar) minsofar = v;
-            int soldtoday = v-minsofar;
-            ans = Math.max(ans,soldtoday);
+        int buy = prices[0];
+        // int sell = prices[0];
+        int max = 0;
+        for(int v : prices){
+            if(v > buy){
+                max = Math.max(max , v-buy);
+            }else
+                buy = v;
         }
-        return ans;
+        return max;
     }
 }
